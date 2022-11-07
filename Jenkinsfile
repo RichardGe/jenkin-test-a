@@ -143,7 +143,7 @@ pipeline {
 
 		cleanup {
 			echo 'post/cleanup'
-			deleteDir()
+		//	deleteDir()
 		}
 	}
 
