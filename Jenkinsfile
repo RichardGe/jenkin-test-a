@@ -32,14 +32,15 @@ pipeline {
             }
 
             steps {
-                echo 'Build_Linux start'
-                sh '''
-                    echo "hello world for Build_Linux"
-                    pwd
-                    cd tutorials
-                    chmod +x ../premake5/linux64/premake5
-                    ../premake5/linux64/premake5 gmake
-                    make -j config=release_x64
+				echo 'Build_Linux start'
+				sh '''
+				echo "hello world for Build_Linux"
+				pwd
+				cd tutorials
+				chmod +x ../premake5/linux64/premake5
+				../premake5/linux64/premake5 gmake
+				make -j config=release_x64
+				dir
                 '''
                 echo 'Build_Linux end'
             }
@@ -125,9 +126,9 @@ pipeline {
 
 
 	post {
-	//	always {
-	//
-	//	}
+		always {
+			echo 'post/always'
+		}
 
 	//	success {
 	//
