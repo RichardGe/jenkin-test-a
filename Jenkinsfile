@@ -61,6 +61,8 @@ pipeline {
                 cd tutorials
                 ..\\premake5\\win\\premake5.exe vs2022
                 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Msbuild\\Current\\Bin\\amd64\\MSBuild.exe" Tutorials.sln /p:Configuration=release /p:Platform="x64" /m
+				cd Bin
+				dir
                 '''
                 echo 'Build_Windows end'
             }
