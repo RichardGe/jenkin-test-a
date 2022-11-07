@@ -98,7 +98,7 @@ pipeline {
 
             steps {
                 echo 'Run_Linux start'
-                bat '''
+                sh '''
                 cd
                 cd tutorials/Bin
                 ./05_basic_scene64
