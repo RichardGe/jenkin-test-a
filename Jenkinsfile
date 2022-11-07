@@ -103,6 +103,7 @@ pipeline {
                 pwd
 				dir
                 cd tutorials/Bin
+				chmod +x ./05_basic_scene64
                 ./05_basic_scene64
                 '''
                 echo 'Run_Linux end'
