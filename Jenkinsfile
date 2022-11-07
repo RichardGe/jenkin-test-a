@@ -103,6 +103,7 @@ pipeline {
                 pwd
 				dir
                 cd tutorials/Bin
+				export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./../../RadeonProRender/binUbuntu18/
 				chmod +x ./05_basic_scene64
                 ./05_basic_scene64
                 '''
