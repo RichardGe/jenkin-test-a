@@ -5,21 +5,23 @@ pipeline {
   agent none
 
 
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
-  stages {
+  // options {
+  //   buildDiscarder(logRotator(numToKeepStr: '5'))
+  // }
 
 
-        stage('Hello0') {
-            agent {
-                label 'linux'
-            }
-            steps {
-               echo 'Hello0 start'
-               echo 'Hello0 end'
-            }
-        }
+	stages {
+
+
+		stage('Hello0') {
+			agent {
+				label 'linux'
+			}
+			steps {
+				echo 'Hello0 start'
+				echo 'Hello0 end'
+			}
+		}
 
 
 
