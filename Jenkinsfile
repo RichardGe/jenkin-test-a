@@ -126,18 +126,18 @@ pipeline {
 
 	post {
 		always {
-
+	
 		}
 
-		success{
+	//	success {
+	//
+	//	}
 
-		}
+	//	failure {
+	//
+	//	}
 
-		failure {
-
-		}
-
-		cleanup{
+		cleanup {
 			deleteDir()
 		}
 	}
