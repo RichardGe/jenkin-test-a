@@ -1,13 +1,35 @@
 pipeline {
-  agent {label 'windows'}
+
+
+  // agent {label 'windows'}
+  agent none
+
+
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   stages {
 
 
+        stage('Hello1') {
+            agent {
+                label 'linux'
+            }
+            steps {
+               echo 'Hello 1 start'
+               echo 'Hello 1 end'
+            }
+        }
+
+
+
 
         stage('Hello2') {
+
+            agent {
+                label 'windows'
+            }
+
             steps {
                 echo 'Hello 2 start'
                 bat '''
@@ -23,9 +45,11 @@ pipeline {
         
         
          stage('Hello3') {
-      //      agent {
-      //          label 'windows'
-      //      }
+
+            agent {
+                label 'windows'
+            }
+
             steps {
                 echo 'Hello 3 start'
                 bat '''
