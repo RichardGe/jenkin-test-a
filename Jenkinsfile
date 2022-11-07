@@ -35,6 +35,7 @@ pipeline {
                     echo "hello world for Build_Linux"
                     pwd
                     cd tutorials
+                    sudo chmod +x ../premake5/linux64/premake5
                     ../premake5/linux64/premake5 gmake
                     make -j config=release_x64
                 '''
