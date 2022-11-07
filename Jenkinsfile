@@ -11,53 +11,74 @@ pipeline {
   stages {
 
 
-        stage('Hello1') {
+        stage('Hello0') {
             agent {
                 label 'linux'
             }
             steps {
-               echo 'Hello 1 start'
-               echo 'Hello 1 end'
+               echo 'Hello0 start'
+               echo 'Hello0 end'
+            }
+        }
+
+
+
+        stage('Build_Linux') {
+
+            agent {
+                label 'linux'
+            }
+
+            steps {
+                echo 'Build_Linux start'
+                sh '''
+                    echo "hello world for Build_Linux"
+                    pwd
+                    cd tutorials
+                    ../premake5/linux64/premake5 gmake
+                    make -j config=release_x64
+                '''
+                echo 'Build_Linux end'
             }
         }
 
 
 
 
-        stage('Hello2') {
+        stage('Build_Windows') {
 
             agent {
                 label 'windows'
             }
 
             steps {
-                echo 'Hello 2 start'
+                echo 'Build_Windows start'
                 bat '''
                 cd
                 cd tutorials
                 ..\\premake5\\win\\premake5.exe vs2022
                 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Msbuild\\Current\\Bin\\amd64\\MSBuild.exe" Tutorials.sln /p:Configuration=release /p:Platform="x64" /m
                 '''
-                echo 'Hello 2 end'
+                echo 'Build_Windows end'
             }
         }
         
         
         
-         stage('Hello3') {
+         stage('Run_Windows') {
 
             agent {
                 label 'windows'
             }
 
             steps {
-                echo 'Hello 3 start'
+                echo 'Run_Windows start'
                 bat '''
                 cd
                 cd tutorials/Bin
                 05_basic_scene64.exe
                 '''
-                echo 'Hello 3 end'
+                echo 'Run_Windows end'
             }
         }
 
