@@ -89,6 +89,28 @@ pipeline {
 
 
 
+        
+         stage('Run_Linux') {
+
+            agent {
+                label 'linux'
+            }
+
+            steps {
+                echo 'Run_Linux start'
+                bat '''
+                cd
+                cd tutorials/Bin
+                ./05_basic_scene64
+                '''
+                echo 'Run_Linux end'
+            }
+        }
+
+
+
+
+
   }
 
 
@@ -100,6 +122,28 @@ pipeline {
    //     )
    // }
  // }
+
+
+	post {
+		always {
+
+		}
+
+		success{
+
+		}
+
+		failure {
+
+		}
+
+		cleanup{
+			deleteDir()
+		}
+	}
+
+
+
 
 
 }
