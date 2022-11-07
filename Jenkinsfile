@@ -125,9 +125,9 @@ pipeline {
 
 
 	post {
-		always {
-	
-		}
+	//	always {
+	//
+	//	}
 
 	//	success {
 	//
