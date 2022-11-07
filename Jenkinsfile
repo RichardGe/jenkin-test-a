@@ -100,7 +100,8 @@ pipeline {
             steps {
                 echo 'Run_Linux start'
                 sh '''
-                cd
+                pwd
+				dir
                 cd tutorials/Bin
                 ./05_basic_scene64
                 '''
@@ -130,15 +131,16 @@ pipeline {
 			echo 'post/always'
 		}
 
-	//	success {
-	//
-	//	}
+		success {
+			echo 'post/success'
+		}
 
-	//	failure {
-	//
-	//	}
+		failure {
+			echo 'post/failure'
+		}
 
 		cleanup {
+			echo 'post/cleanup'
 			deleteDir()
 		}
 	}
