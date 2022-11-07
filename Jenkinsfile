@@ -23,9 +23,9 @@ pipeline {
         
         
          stage('Hello3') {
-            agent {
-                label 'windows'
-            }
+      //      agent {
+      //          label 'windows'
+      //      }
             steps {
                 echo 'Hello 3 start'
                 bat '''
